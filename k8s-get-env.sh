@@ -8,6 +8,8 @@ fi
 
 # Output file
 output_file=$1
+# Keyword
+keyword=$2
 # Log file
 log_file="${output_file%.*}-log.txt"
 
@@ -46,7 +48,7 @@ for ns in $namespaces; do
       #namespace: default | pod: kbank-lineapi-prod-spending-worker-5bcc4469d9-przhb | container: core
 
         # Execute the command and capture both stdout and stderr
-      output=$(kubectl exec -n $ns $pod -c $container -- env 2>&1 | grep AWS || true)
+      output=$(kubectl exec -n $ns $pod -c $container -- env 2>&1 | grep $keyword || true)
 
       # Check if the output contains an error message
       if [[ $output == *"error:"* ]]; then
