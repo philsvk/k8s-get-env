@@ -1,5 +1,5 @@
 # k8s-get-env
-script to get env from container running inside a kubernetes cluster
+script to get env from container running inside a kubernetes cluster and write to csv file.
 
 ### How to execute
-```./get-aws-secret.sh {filename.csv}```
+```./k8s-get-env.sh {filename.csv} {keyword}```
